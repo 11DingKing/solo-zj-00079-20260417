@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import App from './pages/app';
-import TokenProvider from './pages/utilities/token-provider';
+import App from './app';
+import TokenProvider from './common/utilities/token-provider';
 
 ReactDOM
 	.createRoot(document.getElementById('root'))
