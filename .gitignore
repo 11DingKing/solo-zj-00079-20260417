@@ -113,7 +113,5 @@ public/*.txt
 
 letsencrypt/
 mysql/
-Dockerfile
-docker-compose.yml
 startup.sql
 
