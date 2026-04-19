@@ -1,5 +1,17 @@
-#use this while debugging
-CREATE DATABASE template;
-CREATE USER 'template'@'%' IDENTIFIED BY 'pikachu';
+CREATE DATABASE IF NOT EXISTS template;
+CREATE USER IF NOT EXISTS 'template'@'%' IDENTIFIED BY 'pikachu';
 GRANT ALL PRIVILEGES ON template.* TO 'template'@'%';
 
+CREATE DATABASE IF NOT EXISTS auth;
+CREATE USER IF NOT EXISTS 'auth'@'%' IDENTIFIED BY 'charizard';
+GRANT ALL PRIVILEGES ON auth.* TO 'auth'@'%';
+
+CREATE DATABASE IF NOT EXISTS news;
+CREATE USER IF NOT EXISTS 'news'@'%' IDENTIFIED BY 'venusaur';
+GRANT ALL PRIVILEGES ON news.* TO 'news'@'%';
+
+CREATE DATABASE IF NOT EXISTS chat;
+CREATE USER IF NOT EXISTS 'chat'@'%' IDENTIFIED BY 'blastoise';
+GRANT ALL PRIVILEGES ON chat.* TO 'chat'@'%';
+
+FLUSH PRIVILEGES;
