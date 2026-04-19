@@ -22,6 +22,16 @@ services:
       timeout: 5s
       retries: 5
 
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: template_mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    restart: unless-stopped
+    networks:
+      - app-network
+
   auth-server:
     image: krgamestudios/auth-server:latest
     container_name: template_auth
@@ -41,14 +51,16 @@ services:
       DB_TIMEZONE: Australia/Sydney
       SECRET_ACCESS: access_secret_key_for_development
       SECRET_REFRESH: refresh_secret_key_for_development
-      MAIL_SMTP: smtp.example.com
-      MAIL_USERNAME: noreply@example.com
-      MAIL_PASSWORD: mail_password
-      MAIL_PHYSICAL: ""
+      MAIL_SMTP: mailhog:1025
+      MAIL_USERNAME: ""
+      MAIL_PASSWORD: ""
+      MAIL_PHYSICAL: "Test Address, Test City, 12345"
     restart: unless-stopped
     depends_on:
       mariadb:
         condition: service_healthy
+      mailhog:
+        condition: service_started
     networks:
       - app-network
 
