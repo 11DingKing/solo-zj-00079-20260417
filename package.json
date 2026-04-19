@@ -1,0 +1,56 @@
+{
+  "name": "mern-template",
+  "version": "1.5.5",
+  "description": "A website template using the MERN stack.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "npm run build && node server/server.js",
+    "build": "npm run build:server && npm run build:client",
+    "build:server": "exit 0",
+    "build:client": "webpack --env=production --config webpack.config.js",
+    "dev": "concurrently npm:dev:server npm:dev:client",
+    "dev:server": "nodemon --ext js,jsx,json --ignore 'node_modules/*'",
+    "dev:client": "webpack serve --config webpack.config.js",
+    "analyze": "webpack --env=production --env=analyze --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KRGameStudios/MERN-template.git"
+  },
+  "author": "Kayne Ruse",
+  "license": "Zlib",
+  "bugs": {
+    "url": "https://github.com/KRGameStudios/MERN-template/issues"
+  },
+  "homepage": "https://github.com/KRGameStudios/MERN-template#readme",
+  "dependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-react": "^7.28.5",
+    "babel-loader": "^10.1.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "compression-webpack-plugin": "^12.0.0",
+    "concurrently": "^9.2.1",
+    "css-loader": "^7.1.4",
+    "dateformat": "^5.0.3",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "html-webpack-plugin": "^5.6.6",
+    "jwt-decode": "^4.0.0",
+    "mariadb": "^3.5.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.5",
+    "react-router": "^7.14.0",
+    "react-select": "^5.10.2",
+    "sequelize": "^6.37.8",
+    "socket.io-client": "^4.8.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.106.1",
+    "webpack-bundle-analyzer": "^5.3.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "webpack-dev-server": "^5.2.3"
+  }
+}
